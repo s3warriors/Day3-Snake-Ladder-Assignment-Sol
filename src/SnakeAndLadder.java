@@ -1,16 +1,17 @@
 import java.util.Random;
-
 public class SnakeAndLadder {
     public static void main(String[] args) {
         Random random = new Random();
         int position = 0;
+        int diceRollCount = 0;
 
         while (position < 100) {
             int dieRoll = random.nextInt(6) + 1;
+            diceRollCount++;
             int option = random.nextInt(3);
 
             if (position + dieRoll > 100) {
-                continue; // Skip if the position exceeds 100
+                continue;
             }
 
             switch (option) {
@@ -24,11 +25,12 @@ public class SnakeAndLadder {
                     position = Math.max(position, 0);
                     break;
             }
-            System.out.println("Current position: " + position);
+            System.out.println("Roll " + diceRollCount + ": Position = " + position);
         }
-        System.out.println("Congratulations! You reached position 100.");
+        System.out.println("Total dice rolls: " + diceRollCount);
     }
 }
+
 
 
 
